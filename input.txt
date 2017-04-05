@@ -1,0 +1,17 @@
+struct sagar {
+	int data;
+	int metadata;
+};
+
+int main(int a,int b,int c){
+	
+}
+
+int sum(int x,int y){
+	int a,b,c;
+	float m,n;
+
+	if(a+b){
+		int h;
+	}
+}
