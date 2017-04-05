@@ -9,6 +9,7 @@
 
 letter [a-zA-Z]
 digit [0-9]
+DQUOTE [\"]
 %%
 [ \t]		;
 [\n]		{yylineno = yylineno+1;}
@@ -29,6 +30,7 @@ for			{return FOR;}
 "!="    	return NE;
 ">"			return GT;
 "<"			return LT;
+"="			return EQUALS;
 "."     	return POINT;
 "{"			return LEFT_BRACES;
 "}"			return RIGHT_BRACES;
@@ -36,12 +38,12 @@ for			{return FOR;}
 ")" 		return RIGHT_PARENTHESIS;
 "["			return LEFT_BRACKET;
 "]"			return RIGHT_BRACKET;
-[0-9]		return DIGITS;
 {letter}({letter}|{digit})*			return ID;
 {digit}+	return NUM;
 ";"			return SEMICOLON;
 ","			return COMMA;
-"+"			return OPERATOR;
+[+-/*]		return OPERATOR;
+{DQUOTE}([^\"])*{DQUOTE}		return STRING;
 
 
 %%
